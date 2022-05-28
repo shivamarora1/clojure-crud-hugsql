@@ -14,37 +14,27 @@
 (def article-by-id
   {:name :article-by-id
    :enter (fn [context]
-            (print "Hello")
             (if-let [artist-id (get-in context [:request :path-params :artist-id])]
-              (do
-                (log/debug :artist-id artist-id)
-                (ring-resp/response (sql/artist-by-id db {:id (java.util.UUID/fromString artist-id)})))
+              (assoc context :response
+                     (ring-resp/response
+                      (sql/artist-by-id db {:id
+                                            (java.util.UUID/fromString artist-id)})))
               context))})
-
-
-;; (def list-item-view
-;;   {:name :list-item-view
-;;    :leave (fn [context]
-;;             (if-let [list-id (get-in context [:request :path-params :list-id])]
-;;               (if-let [item-id (get-in context [:request :path-params :item-id])]
-;;                 (if-let [item (find-list-item-by-ids (get-in context [:request :database]) list-id item-id)]
-;;                   (assoc context :result item)
-;;                   context)
-;;                 context)
-;;               context))})
 
 (defn all-articles
   [request]
+  (log/info :hello "world")
   (ring-resp/response (sql/artists-all db)))
 
 ;; Tabular routes
-(def routes #{["/artists" :get (conj common-interceptors `all-articles)]
-
-              ["/artist" :get [article-by-id]]
+(def routes
+  (route/expand-routes
+   #{["/artists" :get (conj common-interceptors `all-articles)]
+     ["/artist/:artist-id" :get (conj common-interceptors `article-by-id)]
               ;; ["/artist" :post (conj common-interceptors `all-articles)]
               ;; ["/artist/:artist-id" :patch (conj common-interceptors `all-articles)]
               ;; ["/artist/:artist-id" :delete (conj common-interceptors `all-articles)]
-              })
+     }))
 
 
 

@@ -6,6 +6,8 @@ pom.xml.asc
 *jar
 *.class
 
+.clj-kondo/*
+.lsp
 # Leiningen
 classes/
 lib/

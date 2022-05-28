@@ -43,3 +43,8 @@ Once the image it built, it's cached.  To delete the image and build a new one:
 
 ## Links
 * [Other Pedestal examples](http://pedestal.io/samples)
+
+## Things to figure out
+1. exception handling, pass invalid uuid.
+2. Validations
+3. Mocking/ testing
