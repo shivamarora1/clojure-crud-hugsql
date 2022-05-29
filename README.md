@@ -45,6 +45,10 @@ Once the image it built, it's cached.  To delete the image and build a new one:
 * [Other Pedestal examples](http://pedestal.io/samples)
 
 ## Things to figure out
-1. exception handling, pass invalid uuid.
+1. Print exceptions neatly
 2. Validations
 3. Mocking/ testing
+
+### further reads:
+1. Specs import: https://stackoverflow.com/questions/38024650/how-can-i-use-my-specs-for-their-intended-purposes-if-they-are-in-a-separate-nam
+2. 
