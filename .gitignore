@@ -8,6 +8,7 @@ pom.xml.asc
 
 .clj-kondo/*
 .lsp
+.env
 # Leiningen
 classes/
 lib/

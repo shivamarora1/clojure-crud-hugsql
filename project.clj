@@ -13,6 +13,8 @@
                  [io.pedestal/pedestal.log "0.5.10"]
                  [com.layerware/hugsql "0.5.3"]
                  [ring/ring-json "0.1.2"]
+                 [com.cemerick/url "0.1.1"]
+                 [lynxeyes/dotenv "1.1.0"]
                  [org.postgresql/postgresql "42.3.1"]]
   :min-lein-version "2.0.0"
   :resource-paths ["config", "resources"]

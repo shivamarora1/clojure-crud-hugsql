@@ -1,9 +1,10 @@
-(ns pedestal-hug-sql.db)
+(ns pedestal-hug-sql.db
+  (:require [dotenv :refer [env]]))
 
 (def db
   {:classname "org.postgresql.Driver"
    :subprotocol "postgresql"
-   :subname "//13.126.153.194:5432/sa_delete_me"
-   :user "root"
-   :password "m23e65to"
+   :subname (env "DATABASE_SUB_NAME")
+   :user (env "DATABASE_USER_NAME")
+   :password (env "DATABASE_PASSWORD")
    :sslmode "require"})

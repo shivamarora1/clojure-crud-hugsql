@@ -30,7 +30,7 @@
                             [{:interceptor :article-by-id-request-validator}]
                             (assoc ctx :response (-> (ring.util.response/response "invalid input given")) :status 400)
                             :else
-                            (assoc ctx :io.pedestal.impl.interceptor/error ex)))
+                            (assoc ctx :io.pedestal.interceptor.chain/error ex)))
 
 (def common-interceptors [common-error-handler http/json-body])
 

@@ -3,11 +3,8 @@
   (:require [io.pedestal.http :as server]
             [io.pedestal.http.route :as route]
             [pedestal-hug-sql
-             [service :as service]
-             [db :refer [db]]
-             [sql :as sql]]
-            [clojure.pprint :as pprint]
-            [clojure.spec.alpha :as s]))
+             [service :as service]]
+            ))
 
 (defonce runnable-service (server/create-server service/service))
 
